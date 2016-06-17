@@ -6,12 +6,15 @@ import express from 'express';
 import graphqlHTTP from 'express-graphql';
 import createLRU from 'lru-cache';
 
-import config from './configs/default';
 import Schema from './Schema';
 import BlogPostsRepository from './repositories/BlogPostsRepository';
 import TagsRepository from './repositories/TagsRepository';
 
 import handleForCrawler from './routes/handleForCrawler';
+
+import loadConfigSync from './utilities/loadConfigSync';
+
+const config = loadConfigSync(process.env.NODE_ENV || 'default');
 
 const app = express();
 const axios = Axios.create({

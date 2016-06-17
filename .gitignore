@@ -37,7 +37,8 @@ jspm_packages
 .node_repl_history
 
 # Config
-src/server/configs/default.js
+src/server/configs/*.toml
+!src/server/configs/default.example.toml
 
 # Generated Assets
 public/*.js

@@ -61,7 +61,8 @@
     "react-router": "2.4.1",
     "redux": "3.5.2",
     "sanitize.css": "3.3.0",
-    "scroll-behavior": "0.7.0"
+    "scroll-behavior": "0.7.0",
+    "toml": "2.3.0"
   },
   "ava": {
     "require": [

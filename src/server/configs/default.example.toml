@@ -1,0 +1,9 @@
+baseURL = 'http://localhost:8000'
+
+[website]
+title = 'yaaaaaaaaaaay'
+description = 'noooooooooooooo'
+
+[authorizationToken]
+clientId = 'ghost-frontend'
+clientSecret = 'c132b1efbb54'
