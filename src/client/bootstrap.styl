@@ -1,0 +1,57 @@
+@import 'https://fonts.googleapis.com/css?family=Roboto+Mono:100,100i,300,300i|Roboto:100,100i,300,300i'
+@import 'http://fonts.googleapis.com/earlyaccess/notosansjapanese.css'
+@import '../../node_modules/sanitize.css/lib/sanitize'
+
+$fontFamilyNormal = 'Roboto', 'Noto Sans Japanese'
+$fontFamilyMono = 'Roboto Mono', 'Noto Sans Japanese'
+$fontSizeRegular = 16px
+$fontSizeBigger = 32px
+$fontSizeBiggest = 24px
+$fontSizeSmaller = 12px
+$fontSizeSmallest = 10px
+
+text()
+  line-height 1.5
+  user-select text
+biggerFont()
+  font-size $fontSizeBigger
+  font-weight 100
+biggestFont()
+  font-size $fontSizeBigger
+  font-weight 100
+
+*
+  box-sizing border-box
+  vertical-align top
+  user-select none
+  word-break break-all
+  word-wrap break-word
+svg
+  vertical-align top
+html
+  font-size 16px
+  width 100%
+  height 100%
+body
+  width 100%
+  height 100%
+  line-height 1
+  color #5f5f5f
+  font-size 16px
+  font-family $fontFamilyNormal
+  font-weight 100
+h1
+h2
+h3
+h4
+h5
+h6
+  font-weight 300
+
+#app
+  width 100%
+  height 100%
+
+@import './adapters/interactors/components/authorProfile'
+
+@import './adapters/interactors/root'
