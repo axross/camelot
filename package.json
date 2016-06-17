@@ -1,15 +1,16 @@
 {
   "name": "camelot",
+  "private": true,
   "version": "0.0.0",
   "description": "",
+  "author": "axross <me@axross.io>",
+  "license": "MIT",
   "scripts": {
     "start": "babel-node ./src/server/app.js",
     "bundle": "gulp bundle",
     "bundle-watch": "gulp bundle-watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "axross <me@axross.io>",
-  "license": "MIT",
   "devDependencies": {
     "autoprefixer": "6.3.6",
     "babel-cli": "6.10.1",
