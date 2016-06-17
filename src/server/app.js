@@ -17,8 +17,8 @@ const app = express();
 const axios = Axios.create({
   baseURL: 'https://axx.ghost.io/ghost/api',
   params: {
-    client_id: 'ghost-frontend',
-    client_secret: 'c132b1efbb54',
+    client_id: config.authorizationToken.clientId,
+    client_secret: config.authorizationToken.clientSecret,
   },
 });
 

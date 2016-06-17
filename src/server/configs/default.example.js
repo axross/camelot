@@ -4,4 +4,8 @@ module.exports = {
     title: 'yaaaaaaaaaaay',
     description: 'noooooooooooooo',
   },
+  authorizationToken: {
+    clientId: '',
+    clientSecret: '',
+  },
 };
