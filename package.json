@@ -9,6 +9,8 @@
     "start": "babel-node ./src/server/app.js",
     "bundle": "gulp bundle",
     "bundle-watch": "gulp bundle-watch",
+    "lint": "eslint './src/**/*.js'",
+    "check": "flow",
     "test": "ava"
   },
   "devDependencies": {
@@ -29,6 +31,7 @@
     "eslint-plugin-import": "1.8.1",
     "eslint-plugin-jsx-a11y": "1.5.3",
     "eslint-plugin-react": "5.2.1",
+    "flow-bin": "0.27.0",
     "gulp": "3.9.1",
     "gulp-plumber": "1.1.0",
     "gulp-postcss": "6.1.1",
