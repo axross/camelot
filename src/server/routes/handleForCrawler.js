@@ -1,4 +1,4 @@
-const renderForCrawler = (req, res, next) => {
+const render = (req, res, next) => {
   const config = req.app.locals.di.config;
   const slug = req.params.slug;
   const url = `${config.baseURL}${req.url}`;
@@ -20,12 +20,11 @@ const renderForCrawler = (req, res, next) => {
     });
 };
 
-
 const handleForCrawler = (req, res, next) => {
   const ua = req.get('User-Agent');
 
   if (ua.includes('Twitterbot') || ua.includes('Facebot')) {
-    return renderForCrawler(req, res);
+    return render(req, res);
   }
 
   return next();
