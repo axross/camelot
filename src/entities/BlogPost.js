@@ -9,7 +9,7 @@ type BlogPostParams = {
   slug: string;
   title: string;
   markdown: string;
-  thumbnailImageUrl: string;
+  thumbnailImageURL: string;
   isFeatured: boolean;
   publishedAt: moment;
   tags: Array<Tag>;
@@ -20,7 +20,7 @@ class BlogPost {
   slug: string;
   title: string;
   markdown: string;
-  thumbnailImageUrl: string;
+  thumbnailImageURL: string;
   isFeatured: boolean;
   publishedAt: moment;
   tags: Array<Tag>;
@@ -30,7 +30,7 @@ class BlogPost {
     this.slug = params.slug;
     this.title = params.title;
     this.markdown = params.markdown;
-    this.thumbnailImageUrl = params.thumbnailImageUrl;
+    this.thumbnailImageURL = params.thumbnailImageURL;
     this.isFeatured = params.isFeatured;
     this.publishedAt = params.publishedAt;
     this.tags = params.tags;
@@ -54,8 +54,8 @@ class BlogPost {
       'must be markdown is a string'
     );
     assert(
-      typeof obj.thumbnailImageUrl === 'string',
-      'must be thumbnailImageUrl is a string'
+      typeof obj.thumbnailImageURL === 'string',
+      'must be thumbnailImageURL is a string'
     );
     assert(
       typeof obj.isFeatured === 'boolean',
@@ -77,7 +77,7 @@ class BlogPost {
 
   static fromGhostAPI(obj: Object): BlogPost {
     const params = Object.assign({}, obj, {
-      thumbnailImageUrl: obj.image,
+      thumbnailImageURL: obj.image,
       isFeatured: obj.featured,
       publishedAt: moment(obj.published_at),
       tags: obj.tags.map(item => Tag.fromGhostAPI(item)),

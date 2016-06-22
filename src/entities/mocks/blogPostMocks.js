@@ -10,7 +10,7 @@ export const MOCK_JSON_1 = {
   slug: 'lorem-ipsum',
   title: 'Lorem Ipsum',
   markdown: 'Lorem Ipsum',
-  thumbnailImageUrl: 'http://i.imgur.com/RR0nk2L.jpg',
+  thumbnailImageURL: 'http://i.imgur.com/RR0nk2L.jpg',
   isFeatured: false,
   publishedAt: '2016-06-17T12:34:56.789Z',
   tags: [
@@ -24,7 +24,7 @@ export const MOCK_JSON_2 = {
   slug: 'dolor-sit-amet',
   title: 'Dolor sit amet',
   markdown: 'Dolor sit amet',
-  thumbnailImageUrl: 'http://i.imgur.com/PeE9fKb.gif',
+  thumbnailImageURL: 'http://i.imgur.com/PeE9fKb.gif',
   isFeatured: true,
   publishedAt: '2016-06-19T12:34:56.789Z',
   tags: [
@@ -38,7 +38,7 @@ export const MOCK_JSON_3 = {
   slug: 'consectetur-adipiscing',
   title: 'Consectetur adipiscing',
   markdown: 'Consectetur adipiscing',
-  thumbnailImageUrl: 'http://i.imgur.com/FFf191F.gif',
+  thumbnailImageURL: 'http://i.imgur.com/FFf191F.gif',
   isFeatured: false,
   publishedAt: '2016-06-21T12:34:56.789Z',
   tags: [
@@ -48,28 +48,28 @@ export const MOCK_JSON_3 = {
 };
 
 export const MOCK_GHOST_API_JSON_1 = Object.assign({}, MOCK_JSON_1, {
-  image: MOCK_JSON_1.thumbnailImageUrl,
+  image: '/RR0nk2L.jpg',
   featured: MOCK_JSON_1.isFeatured,
   published_at: MOCK_JSON_1.publishedAt,
-  thumbnailImageUrl: undefined,
+  thumbnailImageURL: undefined,
   isFeatured: undefined,
   publishedAt: undefined,
 });
 
 export const MOCK_GHOST_API_JSON_2 = Object.assign({}, MOCK_JSON_2, {
-  image: MOCK_JSON_2.thumbnailImageUrl,
+  image: 'http://i.imgur.com/PeE9fKb.gif',
   featured: MOCK_JSON_2.isFeatured,
   published_at: MOCK_JSON_2.publishedAt,
-  thumbnailImageUrl: undefined,
+  thumbnailImageURL: undefined,
   isFeatured: undefined,
   publishedAt: undefined,
 });
 
 export const MOCK_GHOST_API_JSON_3 = Object.assign({}, MOCK_JSON_3, {
-  image: MOCK_JSON_3.thumbnailImageUrl,
+  image: 'FFf191F.gif',
   featured: MOCK_JSON_3.isFeatured,
   published_at: MOCK_JSON_3.publishedAt,
-  thumbnailImageUrl: undefined,
+  thumbnailImageURL: undefined,
   isFeatured: undefined,
   publishedAt: undefined,
 });

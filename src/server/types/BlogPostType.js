@@ -30,7 +30,7 @@ const BlogPostType = new GraphQLObjectType({
       type: new GraphQLNonNull(GraphQLString),
       description: 'A Body form of Markdown.',
     },
-    thumbnailImageUrl: {
+    thumbnailImageURL: {
       type: GraphQLString,
       description: 'An URL of Thumbnail Image.',
     },

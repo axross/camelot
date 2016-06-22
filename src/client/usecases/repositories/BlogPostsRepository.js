@@ -1,5 +1,5 @@
 /* @flow */
-import Post from '../../../entities/BlogPost';
+import BlogPost from '../../../entities/BlogPost';
 
 class BlogPostsRepository {
   graphqlClient: any;
@@ -8,15 +8,15 @@ class BlogPostsRepository {
     this.graphqlClient = graphqlClient;
   }
 
-  fetchAll() {
-    this.graphqlClient.query(`
+  getAll(): Promise<BlogPost> {
+    return this.graphqlClient.query(`
       {
-        posts {
+        blogPosts {
           id
           slug
           title
           markdown
-          thumbnailImageUrl
+          thumbnailImageURL
           isFeatured
           publishedAt
           tags {
@@ -27,14 +27,35 @@ class BlogPostsRepository {
         }
       }
     `)
-      .then(result => {
-        console.log(result);
+      .then(({ blogPosts }) => blogPosts.map(item => BlogPost.fromJSON(item)))
+      .catch(err => console.error(err));
+  }
 
-        const posts = result.posts.map(item => Post.fromJSON(item));
+  getBySlug(slug: string): Promise<BlogPost> {
+    return this.graphqlClient.query(`
+      {
+        blogPosts(slug: "${slug}") {
+          id
+          slug
+          title
+          markdown
+          thumbnailImageURL
+          isFeatured
+          publishedAt
+          tags {
+            id
+            slug
+            name
+          }
+        }
+      }
+    `)
+      .then(({ blogPosts }) => {
+        if (blogPosts.length === 0) return null;
+
+        return BlogPost.fromJSON(blogPosts[0]);
       })
-      .catch(err => {
-        console.error(err);
-      });
+      .catch(err => console.error(err));
   }
 }
 
