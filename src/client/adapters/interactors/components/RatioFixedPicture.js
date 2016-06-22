@@ -2,7 +2,13 @@
 import bemmer from 'bemmer';
 import React from 'react';
 
-const RatioFixedPicture = (props: Object) => {
+type Props = {
+  className: ?string;
+  ratio: [number, number];
+  src: string;
+}
+
+const RatioFixedPicture = (props: Props) => {
   const b = bemmer.createBuilder('ratioFixedPicture', props.className);
   const style = {
     paddingTop: `${100 / props.ratio[0] * props.ratio[1]}%`,
@@ -17,14 +23,6 @@ const RatioFixedPicture = (props: Object) => {
       />
     </div>
   );
-};
-
-RatioFixedPicture.propTypes = {
-  className: React.PropTypes.string,
-  ratio: React.PropTypes.arrayOf(
-    React.PropTypes.number
-  ).isRequired,
-  src: React.PropTypes.string.isRequired,
 };
 
 export default RatioFixedPicture;
