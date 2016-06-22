@@ -1,10 +1,19 @@
 import bemmer from 'bemmer';
 import React from 'react';
 
-const GridBox = props => {
+type Props = {
+  className: ?string,
+  columns: number,
+  children: Array<React.Component>;
+}
+
+const GridBox = (props: Props) => {
   const b = bemmer.createBuilder('gridBox', props.className);
-  const items = props.children.map(child => (
-    <div className={b('__inner__item', { [`${props.columns}col`]: true })}>
+  const items = props.children.map((child, i) => (
+    <div
+      className={b('__inner__item', { [`${props.columns}col`]: true })}
+      key={i}
+    >
       {child}
     </div>
   ));
@@ -18,12 +27,8 @@ const GridBox = props => {
   );
 };
 
-GridBox.propTypes = {
-  className: React.PropTypes.string,
-  columns: React.PropTypes.number,
-  children: React.PropTypes.arrayOf(React.PropTypes.element).isRequired,
-};
-
 GridBox.defaultProps = {
   columns: 2,
 };
+
+export default GridBox;
