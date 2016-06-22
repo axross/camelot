@@ -25,6 +25,7 @@
     "babel-preset-react": "6.5.0",
     "babel-register": "6.9.0",
     "csswring": "5.0.0",
+    "enzyme": "2.3.0",
     "eslint": "2.12.0",
     "eslint-config-airbnb": "9.0.1",
     "eslint-plugin-flowtype": "2.2.7",
@@ -39,6 +40,7 @@
     "gulp-sourcemaps": "1.6.0",
     "gulp-stylus": "2.4.0",
     "json-loader": "0.5.4",
+    "react-addons-test-utils": "15.1.0",
     "vinyl-named": "1.1.0",
     "webpack": "1.13.1",
     "webpack-stream": "3.2.0"
