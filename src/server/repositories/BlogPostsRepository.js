@@ -1,4 +1,5 @@
 /* @flow */
+import url from 'url';
 import type {
   HTTPClientAbstruct,
   LRUCacheAbstruct,
@@ -12,7 +13,7 @@ class BlogPostsRepository {
   cache: LRUCacheAbstruct;
   individualCache: LRUCacheAbstruct;
 
-  constructor({ httpClient, individualCache, cache }: { httpClient: HTTPClientAbstruct, cache: LRUCacheAbstruct, individualCache: LRUCacheAbstruct }) {
+  constructor({ httpClient, cache, individualCache }: { httpClient: HTTPClientAbstruct, cache: LRUCacheAbstruct, individualCache: LRUCacheAbstruct }) {
     this.httpClient = httpClient;
     this.cache = cache;
     this.individualCache = individualCache;
@@ -31,7 +32,11 @@ class BlogPostsRepository {
       },
     })
       .then(res => {
-        const blogPosts = res.data.posts.map(item => BlogPost.fromGhostAPI(item));
+        const blogPosts = res.data.posts
+          .map(item => Object.assign({}, item, {
+            image: url.resolve(this.httpClient.defaults.baseURL, item.image),
+          }))
+          .map(item => BlogPost.fromGhostAPI(item));
 
         this.cache.set(`${limit}*${page}`, blogPosts);
 
@@ -54,7 +59,10 @@ class BlogPostsRepository {
       .then(res => {
         if (res.data.posts.length === 0) return null;
 
-        const blogPost = BlogPost.fromGhostAPI(res.data.posts[0]);
+        const item = res.data.posts[0];
+        const blogPost = BlogPost.fromGhostAPI(Object.assign({}, item, {
+          image: url.resolve(this.httpClient.defaults.baseURL, item.image),
+        }));
 
         this.individualCache.set(slug, blogPost);
 
