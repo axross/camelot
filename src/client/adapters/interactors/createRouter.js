@@ -1,6 +1,6 @@
 /* @flow */
 import React from 'react';
-import { IndexRedirect, Route, Router } from 'react-router';
+import { IndexRoute, Route, Router } from 'react-router';
 import { connect } from 'react-redux';
 
 import NotFoundRoute from './routes/NotFoundRoute';
@@ -23,7 +23,7 @@ const createRouter = (history: Object): Object => {
         component={connected.Root}
         path="/"
       >
-        <IndexRedirect to="/posts" />
+        <IndexRoute component={ListPostsRoute} />
 
         <Route
           component={ListPostsRoute}
