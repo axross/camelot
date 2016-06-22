@@ -5,10 +5,13 @@
 $fontFamilyNormal = 'Roboto', 'Noto Sans Japanese'
 $fontFamilyMono = 'Roboto Mono', 'Noto Sans Japanese'
 $fontSizeRegular = 16px
-$fontSizeBigger = 32px
-$fontSizeBiggest = 24px
+$fontSizeBigger = 24px
+$fontSizeBiggest = 32px
 $fontSizeSmaller = 12px
 $fontSizeSmallest = 10px
+$colorBlue = #2980b9
+$colorNight = #34495e
+$colorGrey = #9f9f9f
 
 text()
   line-height 1.5
@@ -30,7 +33,7 @@ svg
   vertical-align top
 html
   font-size 16px
-  width 100%
+  width 1280px
   height 100%
 body
   width 100%
@@ -46,12 +49,17 @@ h3
 h4
 h5
 h6
-  font-weight 300
+  font-weight 100
 
 #app
   width 100%
   height 100%
 
 @import './adapters/interactors/components/authorProfile'
+@import './adapters/interactors/components/blogPostCard'
+@import './adapters/interactors/components/gridBox'
+@import './adapters/interactors/components/ratioFixedPicture'
+
+@import './adapters/interactors/routes/listPostsRoute'
 
 @import './adapters/interactors/root'
